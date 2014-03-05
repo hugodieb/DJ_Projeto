@@ -1,0 +1,19 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+	<h1>Editar este Projeto<small>/Altera dados do Projeto</small></h1>
+</div>
+<form class="form-horizontal" method="post" action="">
+	<div class="form-actions">
+		{% csrf_token %}
+		{{form.as_p}}		
+	</div>
+	<div class="form-actions">
+		<button class="btn btn-primary">Alterar Projeto</button>
+		<a href="{% url "projects_list" %}" class="btn btn-primary">Cancelar</a>
+	</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% block container %}
+
+<div class="page-header">
+	<h1>Exclusão de Projeto<small>/Apaga o Projeto</small></h1>
+</div>
+<form class="form-horizontal" method="post" action="">
+	<div class="form-actions">
+		{% csrf_token %}
+		<div class="alert">
+			<strong><h4>Cuidado!</h4></strong>
+			<p>Voçê realmente quer apagar este projeto de nome : {{ project.name }} ?</p>
+
+		</div>						
+	</div>
+	<div class="form-actions">
+		<button class="btn btn-primary">Remover Projeto</button>
+		<a href="{% url "projects_list" %}" class="btn btn-primary">Cancelar</a>
+	</div>
+</form>
+
+{% endblock %}
