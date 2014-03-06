@@ -1,9 +1,11 @@
 #encoding: utf-8
 
 from django.views.generic import TemplateView, ListView
-from .forms import ProjectForm
-from django.shortcuts import redirect, render, get_object_or_404
+from .forms import ProjectForm, RegisterForm
+from django.shortcuts import redirect, render, get_object_or_404, render_to_response
 from .models import Project
+from django.template import RequestContext
+from django.contrib.auth.models import User 
 
 class CreateProjectView(TemplateView):
 
@@ -69,6 +71,30 @@ def SearchProject(request):
 
 	return render_to_response(template_name, s_name)
 
-	
+def Register_user(request):
+
+	form = RegisterForm()
+
+	if request.method == "POST":
+		form = RegisterForm(request.POST)
+		if form.is_valid():
+			user = form.cleaned_data['username']
+			email = form.cleaned_data['email']
+			password_one = form.cleaned_data['password_one']
+			password_two = form.cleaned_data['password_two']
+
+			new_user = User.objects.create_user(username=user,email=email,password=password_one)
+			new_user.save()
+
+			return render_to_response('projects/tanks_register.html', context_instance=RequestContext(request))
+
+		else:
+			ctx = {'form':form}
+
+
+	ctx = {'form':form}
+
+	return render_to_response('projects/register.html', ctx, context_instance=RequestContext(request))
+
 
 
