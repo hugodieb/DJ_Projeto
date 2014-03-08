@@ -1,11 +1,13 @@
 #encoding: utf-8
 
 from django.views.generic import TemplateView, ListView
-from .forms import ProjectForm, RegisterForm
+from .forms import ProjectForm, RegisterForm, LoginForm
 from django.shortcuts import redirect, render, get_object_or_404, render_to_response
 from .models import Project
 from django.template import RequestContext
-from django.contrib.auth.models import User 
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect  
 
 class CreateProjectView(TemplateView):
 
@@ -91,10 +93,42 @@ def Register_user(request):
 		else:
 			ctx = {'form':form}
 
-
 	ctx = {'form':form}
 
 	return render_to_response('projects/register.html', ctx, context_instance=RequestContext(request))
+
+def Login_user(request):
+	message =""
+
+	if request.user.is_authenticated():
+		return HttpResponseRedirect('/')
+	else:
+		if request.method == "POST":
+			form = LoginForm(request.POST)
+			if form.is_valid():
+				username = form.cleaned_data['username']
+				password = form.cleaned_data['password']
+				user_ = authenticate(username=username,password=password)
+				if user_ is not None and user_.is_active:
+					login(request,user_)
+					return HttpResponseRedirect('/')
+
+				else:
+					message = "Usuário e/ou Senha incorreta"
+
+		form = LoginForm()
+		message = "Favor preencher dados para efetuar o seu login"
+		ctx = {'form':form, 'message':message}
+
+		return render_to_response('projects/login.html', ctx, context_instance=RequestContext(request))
+
+def Logout_user(request):
+	logout(request)
+
+	return HttpResponseRedirect('/')
+
+
+
 
 
 

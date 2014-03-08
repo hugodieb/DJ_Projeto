@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+
+<p><h2>Login</h2></p>
+
+{% block container %}
+	<div class="hero-unit ">
+		<form action="." method="POST">
+			{% csrf_token %}
+			{{ message }}
+			{{ form.as_p }}
+			<button class="btn btn-primary" type="submit">Login</button>
+		</form>
+	</div>
+	
+{% endblock %}

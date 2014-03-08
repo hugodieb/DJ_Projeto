@@ -1,7 +1,7 @@
 #encoding: utf-8
 
 from django.conf.urls import patterns, include, url
-from .views import CreateProjectView, ListProjects, UpdateProject, RemoveProject, SearchProject, Register_user
+from .views import CreateProjectView, ListProjects, UpdateProject, RemoveProject, SearchProject, Register_user, Login_user, Logout_user
 
 urlpatterns = patterns('',
     
@@ -17,5 +17,9 @@ urlpatterns = patterns('',
     	name='project_search'),
     url(r'^register/$', Register_user,
         name='user_register'),
+    url(r'^login/$', Login_user,
+        name='user_login'),
+    url(r'^logout/$', Logout_user,
+        name='user_logout'),
 
 )

@@ -21,13 +21,19 @@ class ProjectForm(forms.ModelForm):
 		#	'Keywords': forms.Textarea,
 		#}
 
+class LoginForm(forms.Form):
+	username = forms.CharField(label="Usuário",widget=forms.TextInput())
+	password = forms.CharField(label="Senha",widget=forms.PasswordInput(render_value=False))
+
+
+
 class RegisterForm(forms.Form):
 	username = forms.CharField(label="Nome de Usuário",widget=forms.TextInput())
 	email = forms.EmailField(label="Email", widget=forms.TextInput())
 	password_one = forms.CharField(label="Senha", widget=forms.PasswordInput(render_value=False))
 	password_two = forms.CharField(label="Confirmar Senha", widget=forms.PasswordInput(render_value=False))
 
-	#validação para verificar se o nome do usuario nao existe
+	#verificação e pesquisa de usuario ja cadastrado
 	def clean_username(self):
 		username = self.cleaned_data['username']
 		try:

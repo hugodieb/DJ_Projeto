@@ -14,6 +14,10 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+      image {
+        width: 241px;
+        height: 209px;
+      }
     </style>
     <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -36,7 +40,7 @@
           <a class="brand" href="{% url "home" %}">Dj Projetos</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class=""><a href="{% url "projects_create" %}">Projeto</a></li>                        
+              <li class=""><a href="{% url "projects_create" %}">Novo Projeto</a></li>                        
               <li class=""><a href="{% url "projects_list" %}">Lista Projetos</a></li>                                  
             </ul>
             <form class="navbar-search pull-left" action="{% url "project_search" %}" method="get">
@@ -44,7 +48,12 @@
             </form>
             <ul class="nav navbar-nav pull-right">
               <li class=""><a href="{% url "user_register" %}">Registre <strong>aqui</strong></a></li>
-              <li class=""><a href="{% url "user_register" %}"><strong>Login</strong></a></li>
+
+              {% if user.is_authenticated %}
+              <li class=""><a href="{% url "user_logout" %}"><strong>Logout</strong></a></li>
+              {% else %}
+              <li class=""><a href="{% url "user_login" %}"><strong>Login</strong></a></li>
+              {% endif %}
             </ul>                                        
           </div><!--/.nav-collapse -->
         </div>
@@ -58,15 +67,26 @@
         <h2><strong>Bem vindo ao DJ Projetos!</strong></h2>
         <p>Gerenciador Web de <strong>projetos</strong> para desenvolvedores de aplicações open source.</p>
         <p>Voçe cria seu projeto aqui e gerencia tudo relacionado ao projeto. </p>        
-      </div>  
-      {% endblock %}   
-      <hr>
-      <div class="container">
-
-        {% block search %}
-        {% endblock %}
-
       </div>
+
+
+      {% endblock %}  
+      <div class="row" align="center">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p><img src="{{MEDIA_URL}}/fundo2.jpeg" width="241" height="209"></p>
+          
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p><img src="{{MEDIA_URL}}/fundo3.jpeg" id="image" width="241" height="100%"></p>
+         
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p><img src="{{MEDIA_URL}}/fundo4.jpeg" width="241" height="209"></p>          
+        </div>
+       </div>            
       <hr>
       <footer>
         <p>Dj Projetos - 2014</p>
