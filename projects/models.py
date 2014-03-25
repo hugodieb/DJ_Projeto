@@ -1,26 +1,39 @@
 #encoding: utf-8
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Project(models.Model):
 
+	user = models.ForeignKey(User)	
 	name = models.CharField(max_length=100, verbose_name=u'Nome')
-
 	author = models.CharField(max_length=100, verbose_name=u'Autor')
-
 	description = models.TextField(verbose_name=u'Descrição', blank=True)
+	
+	@classmethod
+	def infoProject(cls, user):
+		project = cls()
+		project.user = user
+		project.name = user.name
+		project.author = user.author
+		project.description = user.description
 
-	Keywords = models.CharField(max_length=255, verbose_name=u'Palavra chave', blank=True)
+	
 
-	slug = models.SlugField(help_text=u'Irá servir para url elegante')
+class Person(models.Model):
 
-	def __unicode__(self):
+	user = models.ForeignKey(User)
+	username = models.CharField(max_length=100, verbose_name=u'Nome')
+	usermail = models.EmailField(max_length=256, verbose_name=u'Email')
 
-		return self.name
+	@classmethod
+	def infoPerson(cls, user):
+		person = cls()
+		person.user = user
+		person.username = user.username
+		person.usermail = user.usermail
 
-	class Meta:
 
-		verbose_name = u'Projeto'
-		verbose_name_plural = u'Projetos'
+

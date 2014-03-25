@@ -1,96 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% extends "base.html" %} 
 
-    <!-- Le styles -->
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      image {
-        width: 241px;
-        height: 209px;
-      }
-    </style>
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="{% url "home" %}">Dj Projetos</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class=""><a href="{% url "projects_create" %}">Novo Projeto</a></li>                        
-              <li class=""><a href="{% url "projects_list" %}">Lista Projetos</a></li>                                  
-            </ul>
-            <form class="navbar-search pull-left" action="{% url "project_search" %}" method="get">
-              <input type="text" class="search-query" placeholder="Search Project" name="search">
-            </form>
-            <ul class="nav navbar-nav pull-right">
-              <li class=""><a href="{% url "user_register" %}">Registre <strong>aqui</strong></a></li>
-
-              {% if user.is_authenticated %}
-              <li class=""><a href="{% url "user_logout" %}"><strong>Logout</strong></a></li>
-              {% else %}
-              <li class=""><a href="{% url "user_login" %}"><strong>Login</strong></a></li>
-              {% endif %}
-            </ul>                                        
-          </div><!--/.nav-collapse -->
+{% block content %}
+  <!-- Main hero unit for a primary marketing message or call to action -->
+      
+      
+      <div class="">
+        <div class="hero-unit">
+          <img class="img-rounded" src="{{MEDIA_URL}}/fundo5.jpeg" width="220" style="background-position: 200px 70px;">
+                
+         <div class="row pull-right"><h2><strong>Bem vindo ao DJ Projetos!</strong></h2>
+            <p>Gerenciador Web de <strong>projetos</strong> para desenvolvedores de aplicações open source.</p>
+          <p>Hospede seu projeto aqui e gerencia tudo relacionado a ele. </p></div>        
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-      {% block container %}
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h2><strong>Bem vindo ao DJ Projetos!</strong></h2>
-        <p>Gerenciador Web de <strong>projetos</strong> para desenvolvedores de aplicações open source.</p>
-        <p>Voçe cria seu projeto aqui e gerencia tudo relacionado ao projeto. </p>        
-      </div>
-
-
-      {% endblock %}  
-      <div class="row" align="center">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p><img src="{{MEDIA_URL}}/fundo2.jpeg" width="241" height="209"></p>
-          
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p><img src="{{MEDIA_URL}}/fundo3.jpeg" id="image" width="241" height="100%"></p>
-         
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p><img src="{{MEDIA_URL}}/fundo4.jpeg" width="241" height="209"></p>          
-        </div>
-       </div>            
-      <hr>
-      <footer>
-        <p>Dj Projetos - 2014</p>
-      </footer>
-    </div> <!-- /container -->
-  </body>
-</html>
+     </div> 
+{% endblock %}  
+      

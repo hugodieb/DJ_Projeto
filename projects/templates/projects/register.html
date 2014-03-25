@@ -1,11 +1,16 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 
-<p><h2>Create an account</h2></p>
-
-{% block container %}
-	<form action="." method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button class="btn btn-primary" type="submit">Registrar</button>
-	</form>
+{% block content %}
+	
+		<p><small><h1>Cadastro de novos usuários</h1></small></p>
+		<div class="herodj-unit">
+			<div class="rowdj">
+				<form action="." method="POST">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<button class="btn btn-inverse" type="submit">Registrar</button>
+				</form>
+			</div>
+		</div>
+	
 {% endblock %}
