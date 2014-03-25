@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<p><small><h1>Dados Usuário</h1></small></p>
+		<div class="hero-unit">
+			<div class="control-group">
+			<label class="control-label" for="realName">Real name</label>
+			<div class="controls">
+				<input type="text" class="span4" id="realName" name="realName" value="{{user.username}}">
+			</div>
+		</div>
+		</div>
+	</div>
+{% endblock %}

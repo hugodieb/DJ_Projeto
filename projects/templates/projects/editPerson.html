@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<p><small><h1>Dados Usuário</h1></small></p>
+		<div class="hero-unit">
+			<form class="form-horizontal" method="post" action="">
+				
+					{% csrf_token %}
+					<!--{% include "form.html" %} **adiciona o form inteiro**-->
+
+					<!--<div class="control-group"> **adiciona somente os campos solicitados
+						<label class="control-label">{{ form.name.label }}</label>
+						<div class="controls">{{ form.name }}</div>
+					</div>-->					
+								
+					{{ form.as_p }}
+			<div class="container-fluid">
+				<button class="btn btn-inverse">Salvar</button>
+				<a href="{% url "home" %}" class="btn btn-inverse">Cancelar</a>
+			</div>
+			<form/>
+		</div>
+	</div>
+{% endblock %}

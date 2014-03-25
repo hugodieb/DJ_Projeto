@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/bootstrap1/css/style.css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      hr {
+      color: #9EC3F5;
+      background-color: #9EC3F5;
+      height: 4px;
+      }
+    </style>
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+<div class="wrap">
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{% url "home" %}">Dj Projetos</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="{% url "projects_create" %}">Novo Projeto</a></li>                        
+              <li class=""><a href="{% url "projects_list" %}">Lista Projetos</a></li>                                  
+            </ul>
+            <form class="navbar-search pull-left" action="{% url "project_search" %}" method="get">
+              <div class="input-prepend">                
+                <input class="span2" id="prependedInput" type="text" placeholder="Username">
+                <span class="add-on"><i class="icon-search"></i></span>
+              </div>
+            </form>
+
+            <ul class="nav navbar-nav pull-right">
+              <li class=""><a href="{% url "user_register" %}">Registre <strong>aqui</strong></a></li>
+
+              {% if user.is_authenticated %}
+              <li class=""><a href="{% url "user_logout" %}"><strong>Logout</strong></a></li>
+              {% else %}
+              <li class=""><a href="{% url "user_login" %}"><strong>Login</strong></a></li>
+              {% endif %}
+            </ul>                                        
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+      
+      <div class="logo"><a href="index.html"><img src="{{STATIC_URL}}/bootstrap1/images/logom.jpeg" alt="" title="" border="0" /></a></div>
+        
+        
+           
+      <div class="user_icon"><img src="{{STATIC_URL}}/bootstrap1/images/user.png" alt="" title="" border="0"/></div>
+    
+    <div class="welcome_block">
+    
+        
+    </div> <!--End of welcome_block-->    
+    
+    <div class="main_content">
+        <div class="left_content">
+              <h2>My services</h2>
+                
+                <div class="services_block">
+          <img src="{{STATIC_URL}}/bootstrap1/images/icon1.gif" alt="" title="" border="0" class="icon_left" />
+                    <div class="services_details">
+                     <h3>Service name</h3>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt .
+                    </p>                    
+                    </div>
+                </div>
+                
+                <div class="services_block">
+          <img src="{{STATIC_URL}}/bootstrap1/images/icon2.gif" alt="" title="" border="0" class="icon_left" />
+                    <div class="services_details">
+                     <h3>Service name</h3>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                    </p>                    
+                    </div>
+                </div> 
+                
+                <div class="services_block">
+          <img src="{{STATIC_URL}}/bootstrap1/images/icon3.gif" alt="" title="" border="0" class="icon_left" />
+                    <div class="services_details">
+                    <h3>Service name</h3>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                    </p>                    
+                    </div>
+                </div> 
+                
+                <div class="services_block">
+          <img src="{{STATIC_URL}}/bootstrap1/images/icon4.gif" alt="" title="" border="0" class="icon_left" />
+                    <div class="services_details">
+                     <h3>Service name</h3>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+                    </p>                    
+                    </div>
+                </div> 
+                
+                
+
+                
+                    <h2>About me</h2>
+                    
+                    <div class="about">
+                        <img src="{{STATIC_URL}}/bootstrap1/images/thumb.gif" alt="" title="" border="0" class="thumb" />
+                        <p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut  Lorem ipsum dolor sit amet  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+<br /><br />
+Sed do eiusmod tempor incididunt ut  Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p> 
+                        <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/read_more.gif" alt="" title="" border="0" class="read_more" /></a>                  
+                    </div> 
+
+                
+                
+                
+      </div>
+            
+            
+            <div class="right_content">
+          <h2>Latest blog news</h2>
+                    
+                    <div class="news_block">
+                    <h4><a href="#">News title here</a></h4>
+                    <p>
+                    <img src="{{STATIC_URL}}/bootstrap1/images/news_icon.gif" alt="" title="" border="0" class="thumb" />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut  Lorem ipsum dolor sit amet </p>
+                    </div>
+                    
+                    
+                    <div class="news_block">
+                    <h4><a href="#">News title here</a></h4>
+                    <p>
+                    <img src="{{STATIC_URL}}/bootstrap1/images/news_icon.gif" alt="" title="" border="0" class="thumb" />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut  Lorem ipsum dolor sit amet </p>
+                    </div>    
+                    
+                    <h2>Featured projects</h2>
+            
+                <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project1.jpg" alt="" title="" border="0" class="project" /></a>
+                    <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project2.jpg" alt="" title="" border="0" class="project" /></a> 
+                    <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project3.jpg" alt="" title="" border="0" class="project" /></a> 
+                    <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project2.jpg" alt="" title="" border="0" class="project" /></a> 
+                    <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project1.jpg" alt="" title="" border="0" class="project" /></a> 
+                    <a href="#"><img src="{{STATIC_URL}}/bootstrap1/images/project3.jpg" alt="" title="" border="0" class="project" /></a>    
+            
+            </div>
+            
+            
+            <div class="clear"></div>
+    </div><!--End of main_content-->
+
+    
+</div><!--End of wrap-->            
+      <hr>
+      <footer>
+        <p>Dj Projetos - 2014</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html>
