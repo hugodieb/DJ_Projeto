@@ -6,9 +6,11 @@ h2{
     font-family: "trebuchet ms", sans-serif;    
 }
 .item{
-    background: #333;    
+        
+    background-image: url("/media/bits2.jpg");
+    background-repeat: repeat;
     text-align: center;
-    height: 300px !important;
+    height: 400px !important;
 }
 .carousel{
     margin-top: 20px;
@@ -18,7 +20,24 @@ h2{
 }
 .dj{
     margin: auto; 
-    padding-top: 18px;
-    width:600px;
-    height:160px;
+    padding-top: 20px;
+    width:500px;
+    height:220px;
+}
+.djimg{
+    width:14%;
+    height:60px;
+    top: 1px;
+    padding: 10px 10px;
+    
+}
+.djcontainer{
+    width:100%;
+    height:80px;
+    top: 1px;
+    padding: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-image:url("/media/header2.jpg");
+    *zoom: 1; 
 }
