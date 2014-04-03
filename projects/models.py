@@ -13,14 +13,14 @@ class Project(models.Model):
 	description = models.TextField(verbose_name=u'Descrição', blank=True)
 	
 	@classmethod
-	def infoProject(cls, user):
+	def infoProject(cls, user, name, author, description):
 		project = cls()
 		project.user = user
-		project.name = user.name
-		project.author = user.author
-		project.description = user.description
+		project.name = name
+		project.author = author
+		project.description = description
 
-	
+		return project
 
 class Person(models.Model):
 

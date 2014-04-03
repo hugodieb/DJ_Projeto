@@ -5,13 +5,10 @@ from django.contrib.auth.models import User
 
 from .models import Project
 
-class ProjectForm(forms.Form):
+#class ProjectForm(forms.ModelForm):
 
-	name = forms.CharField(label='Nome',widget=forms.TextInput())
-	author = forms.CharField(label='Autor',widget=forms.TextInput())
-	description = forms.CharField(label='Descrição',widget=forms.Textarea()) 
 
-	#def __init__(self, *args, **kwargs):
+		#def __init__(self, *args, **kwargs):
 
 		#neste metodo posso mudar os campos do formulario com o codigo abaixo#
 	#	super(ProjectForm, self).__init__(*args, **kwargs)

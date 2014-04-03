@@ -5,15 +5,34 @@
 <div class="page-header">
 	<h1>Editar este Projeto<small>/Altera dados do Projeto</small></h1>
 </div>
-<form class="form-horizontal" method="post" action="">
-	<div class="form-actions">
-		{% csrf_token %}
-		{{form.as_p}}		
-	</div>
-	<div class="form-actions">
-		<button class="btn btn-primary">Alterar Projeto</button>
-		<a href="{% url "projects_list" %}" class="btn btn-primary">Cancelar</a>
-	</div>
-</form>
+<div class="hero-unit">
+			<form class="form-horizontal" method="post" action="">
+				{% csrf_token %}
+			 <div class="control-group">
+    		  <label class="control-label" for="name">Nome</label>
+    		   <div class="controls">
+      		    <input type="text" name="name" placeholder="Nome do Projeto" value="{{project.name}}">
+    		   </div>
+  			 </div>
+  			 <div class="control-group">
+    		  <label class="control-label" for="author">Autor</label>
+    		   <div class="controls">
+      		    <input type="text" name="author" placeholder="Autor do projeto" value="{{project.author}}">
+    		   </div>
+  			 </div>
 
+  			 <div class="control-group">
+    		  <label class="control-label" for="description">Descrição</label>
+    		   <div class="controls">
+      		    <textarea name="description" rows="10">{{project.description}}</textarea>
+    		   </div>
+  			 </div>
+
+			<div class="control-group">
+			 <div class="controls">
+				<button class="btn btn-inverse">Novo Projeto</button>
+				<a href="{% url "home" %}" class="btn btn-inverse">Cancelar</a>
+			</div>
+			</form>
+		</div>
 {% endblock %}

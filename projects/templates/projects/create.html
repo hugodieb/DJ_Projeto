@@ -1,25 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="container">
-		<p><small><h1>Cadastro de novos usuários</h1></small></p>
-		<div class="hero-unit">
-			<form class="form-horizontal" method="post" action="">
-				
-					{% csrf_token %}
-					<!--{% include "form.html" %} **adiciona o form inteiro**-->
 
-					<!--<div class="control-group"> **adiciona somente os campos solicitados
-						<label class="control-label">{{ form.name.label }}</label>
-						<div class="controls">{{ form.name }}</div>
-					</div>-->					
-						{{ form.as_p }}			
+
+	<div class="page-header">
+	 <p class="muted"><h1>Cadastro de Projetos</h1></p>
+	</div>
+		<div class="hero-unit">
+			<span><p>{{msg}}</p></span>
+			<form class="form-horizontal" method="post" action=".">
+				{% csrf_token %}
+			 <div class="control-group">
+    		  <label class="control-label" for="name">Nome</label>
+    		   <div class="controls">
+      		    <input type="text" id="name" name="name" placeholder="Nome do Projeto">
+    		   </div>
+  			 </div>
+  			 <div class="control-group">
+    		  <label class="control-label" for="author">Autor</label>
+    		   <div class="controls">
+      		    <input type="text" id="author" name="author" placeholder="Autor do projeto">
+    		   </div>
+  			 </div>
+
+  			 <div class="control-group">
+    		  <label class="control-label" for="description">Descrição</label>
+    		   <div class="controls">
+      		    <textarea id="description" name="description" rows="10"></textarea>
+    		   </div>
+  			 </div>  			 		
 			
-			<div class="container-fluid">
+			<div class="control-group">
+			 <div class="controls">	
 				<button class="btn btn-inverse">Novo Projeto</button>
 				<a href="{% url "home" %}" class="btn btn-inverse">Cancelar</a>
 			</div>
-			<form/>
+			</form>
 		</div>
-	</div>
+	
 {% endblock %}
+
+
+<!--{% csrf_token %}
+					{% include "form.html" %} **adiciona o form inteiro**
+
+					<div class="control-group"> **adiciona somente os campos solicitados
+						<label class="control-label">{{ form.name.label }}</label>
+						<div class="controls">{{ form.name }}</div>
+					</div>					
+						{{ form.as_p }}-->
